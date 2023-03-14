@@ -1,0 +1,27 @@
+class A{
+    public A(){
+        System.out.println("in A");
+    }
+    public A(int n){
+        System.out.println("in A int");
+    }
+}
+class B extends A{
+    public B(){
+        super();                        // executes super even if we dont explicitly call it in the first line
+        System.out.println("in B");
+    }
+    public B(int n){
+        this();                         // this calls the current class constructor
+        System.out.println("in B int");
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        B obj = new B(5);
+    }
+}
+
+// output: in A
+//         in B
+//         in B int
