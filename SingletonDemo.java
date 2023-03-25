@@ -15,8 +15,11 @@ class SingletonTest{
 }
 class SingletonDemo{
     public static void main(String[] args){
-        SingletonTest d = SingletonTest.getObject();
+        SingletonTest d = SingletonTest.getObject();    // to test,create one more instance and call hashCode()
+        SingletonTest d1 = SingletonTest.getObject();
         d.show();
+        System.out.println(d.hashCode());
+        System.out.println(d1.hashCode());
     }
     
 }
