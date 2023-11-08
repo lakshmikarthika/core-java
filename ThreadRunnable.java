@@ -3,10 +3,6 @@ package com.core;
 class A implements Runnable{     // can also create thread using implements Runnable instead of extends Thread if we want to extend another class
 		   						// class A implements Runnable		Runnable is functional Interface with run method
 	public void run() {
-		show();
-	} 
-
-	public void show() {
 		for(int i=0;i<50;i++) {
 			System.out.println("Hi");
 			try {
@@ -14,17 +10,11 @@ class A implements Runnable{     // can also create thread using implements Runn
 			} catch (InterruptedException e) {
 				
 			}
-		}
-		
+		}	
 	}
 }
 class B implements Runnable{
-	
 	public void run() {
-		show();
-	}
-	
-	public void show() {
 		for(int i=0;i<50;i++) {
 			System.out.println("Hello");
 			try {
@@ -43,6 +33,37 @@ public class ThreadPractise {
 		Thread t2 = new Thread(obj1);
 		t1.start();
 		t2.start();
-		
+	}
+}
+
+
+// converting above run method to lambda expression coz runnable is functional Inter
+
+public class ThreadPractise {
+	public static void main(String[] args) {
+		Runnable obj = () -> {
+				for(int i=0;i<50;i++) {
+					System.out.println("Hi");
+					try {
+						Thread.sleep(5);
+					} catch (InterruptedException e) {
+						
+					}
+				}
+		};	// also can create Runnable type for object
+		Runnable obj1 = () -> {
+				for(int i=0;i<50;i++) {
+					System.out.println("Hello");
+					try {
+						Thread.sleep(6);
+					} catch (InterruptedException e) {
+						
+					}
+				}
+		};
+		Thread t1 = new Thread(obj);
+		Thread t2 = new Thread(obj1);
+		t1.start();
+		t2.start();
 	}
 }
