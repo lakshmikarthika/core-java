@@ -1,4 +1,5 @@
-class A extends Thread{
+					// can also create thread using implements Runnable instead of extends Thread if we want to extend another class
+class A extends Thread{		   	// class A implements Runnable		Runnable is functional Interface with run method
 	public void run() {        // when thread is started JVM calls the run method
 		show();
 	} 
